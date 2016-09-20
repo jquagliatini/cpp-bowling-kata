@@ -18,7 +18,9 @@ bool Game::isSpare(int frame) {
 int Game::score() {
   int score = 0;
   for (int i = 0; i < total.size(); i++) {
-    if (isSpare(i)) {
+    if (total[i] == 10) { // strike
+      score += total[i + 1] + total[i + 2];
+    } else if (isSpare(i)) {
       score += total[i + 2];
     }
     score += total[i];
