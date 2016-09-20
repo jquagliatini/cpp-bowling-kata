@@ -6,6 +6,7 @@ class GameTest : public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(GameTest);
   CPPUNIT_TEST(testAllGutter);
   CPPUNIT_TEST(testAllOne);
+  CPPUNIT_TEST(testSpare);
   CPPUNIT_TEST_SUITE_END();
 public:
   void setUp();
@@ -13,6 +14,7 @@ public:
 protected:
   void testAllGutter();
   void testAllOne();
+  void testSpare();
 private:
   Game *game;
   void rollMany(int number, int pin);
@@ -45,6 +47,15 @@ void GameTest::testAllOne()
 {
   rollMany(20, 1);
   CPPUNIT_ASSERT_EQUAL(20, game->score());
+}
+
+void GameTest::testSpare()
+{
+  game->roll(5);
+  game->roll(5);
+  game->roll(3);
+  rollMany(17, 0);
+  CPPUNIT_ASSERT_EQUAL(16, game->score());
 }
 
 CPPUNIT_TEST_SUITE_REGISTRATION( GameTest );
