@@ -15,6 +15,7 @@ protected:
   void testAllOne();
 private:
   Game *game;
+  void rollMany(int number, int pin);
 };
 
 void GameTest::setUp()
@@ -27,19 +28,22 @@ void GameTest::tearDown()
   delete game;
 }
 
+void GameTest::rollMany(int number, int pin)
+{
+  for (int i = 0; i < number; i++) {
+    game->roll(pin);
+  }
+}
+
 void GameTest::testAllGutter()
 {
-  for (int i = 0; i < 20; i++) {
-    game->roll(0);
-  }
+  rollMany(20, 0);
   CPPUNIT_ASSERT_EQUAL(0, game->score());
 }
 
 void GameTest::testAllOne()
 {
-  for (int i = 0; i < 20; i++) {
-    game->roll(1);
-  }
+  rollMany(20, 1);
   CPPUNIT_ASSERT_EQUAL(20, game->score());
 }
 
