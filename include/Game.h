@@ -6,6 +6,7 @@ class Game {
 private:
   std::vector<int> total;
   bool isSpare(int frame);
+  bool isStrike(int frame);
 public:
   Game();
   ~Game();

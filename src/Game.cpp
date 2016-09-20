@@ -15,10 +15,14 @@ bool Game::isSpare(int frame) {
   return total[frame] + total[frame + 1] == 10;
 }
 
+bool Game::isStrike(int frame) {
+  return total[frame] == 10;
+}
+
 int Game::score() {
   int score = 0;
   for (int i = 0; i < total.size(); i++) {
-    if (total[i] == 10) { // strike
+    if (isStrike(i)) {
       score += total[i + 1] + total[i + 2];
     } else if (isSpare(i)) {
       score += total[i + 2];
