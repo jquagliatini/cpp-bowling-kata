@@ -26,10 +26,10 @@ int Game::score() {
     if (isStrike(frame)) {
       score += 10 + total[frame + 1] + total[frame + 2];
       frame++;
-    } else if (isSpare(frame)) {
-      score += 10 + total[frame + 2];
-      frame += 2;
     } else {
+      if (isSpare(frame)) {
+        score += total[frame + 2];
+      }
       score += total[frame] + total[frame + 1];
       frame += 2;
     }
