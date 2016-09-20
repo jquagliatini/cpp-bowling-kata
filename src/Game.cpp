@@ -21,13 +21,18 @@ bool Game::isStrike(int frame) {
 
 int Game::score() {
   int score = 0;
-  for (int i = 0; i < total.size(); i++) {
-    if (isStrike(i)) {
-      score += total[i + 1] + total[i + 2];
-    } else if (isSpare(i)) {
-      score += total[i + 2];
+  int frame = 0;
+  for (int i = 0; i < 10; i++) {
+    if (isStrike(frame)) {
+      score += 10 + total[frame + 1] + total[frame + 2];
+      frame++;
+    } else if (isSpare(frame)) {
+      score += 10 + total[frame + 2];
+      frame += 2;
+    } else {
+      score += total[frame] + total[frame + 1];
+      frame += 2;
     }
-    score += total[i];
   }
   return score;
 }
