@@ -3,6 +3,7 @@
 
 class Game {
 private:
+  int total;
 public:
   Game();
   ~Game();
