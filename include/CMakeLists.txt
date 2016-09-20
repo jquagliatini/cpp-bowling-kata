@@ -1,0 +1,1 @@
+INSTALL(FILES Game.h DESTINATION /include)
