@@ -4,10 +4,13 @@
 
 class GameTest : public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(GameTest);
+  CPPUNIT_TEST(testAllGutter);
   CPPUNIT_TEST_SUITE_END();
 public:
   void setUp();
   void tearDown();
+protected:
+  void testAllGutter();
 private:
   Game *game;
 };
@@ -20,6 +23,14 @@ void GameTest::setUp()
 void GameTest::tearDown()
 {
   delete game;
+}
+
+void GameTest::testAllGutter()
+{
+  for (int i = 0; i < 20; i++) {
+    game->roll(0);
+  }
+  CPPUNIT_ASSERT_EQUAL(0, game->score());
 }
 
 CPPUNIT_TEST_SUITE_REGISTRATION( GameTest );
