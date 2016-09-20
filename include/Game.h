@@ -1,9 +1,10 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
+#include <vector>
 class Game {
 private:
-  int total;
+  std::vector<int> total;
 public:
   Game();
   ~Game();
