@@ -1,6 +1,6 @@
 # CPPBowlingKata :bowling:
 
-[![Travis](img.shields.io/travis/1M0reBug/cpp-bowling-kata)]()
+[![Travis](https://img.shields.io/travis/1M0reBug/cpp-bowling-kata.svg?style=flat-square)](https://travis-ci.org/1M0reBug/cpp-bowling-kata)
 
 This is an implementation of the famous Java Bowling Kata using C++, CPPUnit and CMake.
 The purpose of the repo is to be the memory on how to build a TDD project using CMake and CPPUnit (and maybe how to link it with CI).
